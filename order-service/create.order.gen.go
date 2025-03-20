@@ -463,7 +463,7 @@ func (e *Error) Error() string {
 
 // OrderMessagePayload is a schema from the AsyncAPI specification required in messages
 type OrderMessagePayload struct {
-	// Description: Unique identifier for the customer.
+	// Description: Unique identifier for the order.
 	CustomerId *string `json:"customerId,omitempty"`
 
 	// Description: List of items in the order.
@@ -472,8 +472,14 @@ type OrderMessagePayload struct {
 	// Description: Unique identifier for the order.
 	OrderId string `json:"orderId"`
 
+	// Description: Unique identifier for the span.
+	SpanId string `json:"spanId"`
+
 	// Description: Total order amount.
 	TotalAmount *float32 `json:"totalAmount,omitempty"`
+
+	// Description: Unique identifier for the trace.
+	TraceId string `json:"traceId"`
 }
 
 // ItemFromItemsPropertyFromOrderMessagePayload is a schema from the AsyncAPI specification required in messages

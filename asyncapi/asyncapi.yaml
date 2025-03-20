@@ -51,7 +51,13 @@ components:
             description: Unique identifier for the order.
           customerId:
             type: string
-            description: Unique identifier for the customer.
+            description: Unique identifier for the order.
+          traceId:
+            type: string
+            description: Unique identifier for the trace.
+          spanId:
+            type: string
+            description: Unique identifier for the span.
           totalAmount:
             type: number
             format: float
@@ -70,4 +76,6 @@ components:
                   description: Quantity of the product.
         required: 
           - orderId
+          - traceId
+          - spanId
                
