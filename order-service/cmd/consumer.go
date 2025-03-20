@@ -47,7 +47,7 @@ func main() {
 	}()
 
 	// Create a new Kafka broker
-	broker, err := kafka.NewController([]string{"localhost:19092"})
+	broker, err := kafka.NewController([]string{"localhost:19092"}, kafka.WithGroupID("report-service"))
 	if err != nil {
 		log.Fatalf("Failed to create Kafka controller: %v", err)
 	}
