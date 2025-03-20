@@ -33,3 +33,17 @@ services:
       DYNAMIC_CONFIG_ENABLED: 'true'
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    command: ["--config=/etc/otel/config.yaml"]
+    volumes:
+      - ./config/otel-collector-config.yaml:/etc/otel/config.yaml
+    ports:
+      - "4318:4318"  # OTLP HTTP receiver
+      - "4317:4317"  # OTLP gRPC receiver
+
+  jaeger:
+    image: jaegertracing/all-in-one:1.67.0
+    ports:
+      - "16686:16686"
